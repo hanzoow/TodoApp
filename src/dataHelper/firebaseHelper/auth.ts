@@ -66,7 +66,6 @@ export default class FirebaseAuthHelper {
         gender: registerData.gender,
         avatarUrl: 'default',
       });
-    debugger;
     return createResult;
   };
 }

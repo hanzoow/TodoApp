@@ -7,6 +7,7 @@ import {commonStyles} from '../../common/commonStyle';
 export interface notificationHeaderProps {
   name: string;
   time: string;
+  initVisible?: boolean;
 }
 
 const NotifcationHeader = (props: notificationHeaderProps) => {
@@ -16,7 +17,7 @@ const NotifcationHeader = (props: notificationHeaderProps) => {
     setIsVisible(!isVisible);
   };
 
-  return isVisible ? (
+  return isVisible && props.initVisible ? (
     <View style={styles.container}>
       <View style={styles.backgroundContainer}>
         <View style={styles.itemContainer}>

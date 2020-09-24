@@ -59,6 +59,7 @@ const SignInScreen = () => {
       .validate(email)
       .then(async (result) => {
         newEmail = email;
+        console.log(newEmail);
         await dispatch(loginRequest({email: newEmail, password}));
         setLoading(false);
       })
@@ -67,6 +68,7 @@ const SignInScreen = () => {
         if (result.docs.length > 0) {
           setLoading(true);
           newEmail = result.docs[0].data().email;
+          console.log(newEmail);
           await dispatch(loginRequest({email: newEmail, password}));
           setLoading(false);
         } else {

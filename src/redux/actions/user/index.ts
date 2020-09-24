@@ -1,3 +1,4 @@
+import {languages} from './../../../languages/index';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {userPayload, userInfo, userActionsType} from '../../type/user';
 import {ThunkDispatch, ThunkAction} from 'redux-thunk';
@@ -99,13 +100,11 @@ export const loginRequest = (user: userLoginWithEmail) => {
                       username,
                     },
                   };
-                  Session.saveUser(result.userInfo)
-                    .then(() => {
-                      dispatch(loginSuccess(result));
-                    })
-                    .catch((err) => {
-                      dispatch(loginFailure(err));
-                    });
+                  Session.saveUser(result.userInfo).then((rs) => {
+                    dispatch(loginSuccess(result));
+                  });
+                } else {
+                  dispatch(loginFailure(languages.email_or_password_incorrect));
                 }
               })
               .catch((error) => {
@@ -114,7 +113,6 @@ export const loginRequest = (user: userLoginWithEmail) => {
           }
         })
         .catch((error) => {
-          debugger;
           dispatch(loginFailure(error));
         });
     });

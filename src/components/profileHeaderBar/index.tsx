@@ -19,7 +19,11 @@ const ProfileHeaderBar = (props: ProfileHeaderProps) => {
       </View>
       <View style={styles.avatarContainer}>
         <Image
-          source={props.avatarUrl ? {uri: props.avatarUrl} : images.logoApp}
+          source={
+            props.avatarUrl !== 'default'
+              ? {uri: props.avatarUrl}
+              : images.logoApp
+          }
           style={styles.imageStyle}
           resizeMode={'stretch'}
         />

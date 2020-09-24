@@ -1,13 +1,24 @@
 export type userInfo = {
-  email: string | null;
-  avatarUrl: string | null;
-  gender: number | null;
-  username: string | null;
+  email: string;
+  avatarUrl: string;
+  gender: number;
+  username: string;
   birthday: {day: number; month: number; year: number};
   fullname: string;
   phone: string;
   uid: string;
 };
+
+export interface IUser {
+  email: string;
+  avatarUrl: string;
+  gender: number;
+  username: string;
+  birthday: {day: number; month: number; year: number};
+  fullname: string;
+  phone: string;
+  uid: string;
+}
 
 export type userPayload = {
   loginStatus: boolean;
